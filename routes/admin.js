@@ -55,8 +55,7 @@ router.post('/signin', async(req, res) =>{
 });
 
 router.post('/courses', AdminMiddleware, (req, res) =>{
-    // course creation logic
-
+    // course creation logic    
 });
 
 router.get('/courses', AdminMiddleware, (req, res) =>{
