@@ -48,7 +48,8 @@ router.post('/signin', async(req, res) =>{
         }
     }catch(error){
         res.json({
-            message : error.message
+            message : error.message,
+            code : errror.code
         })
     }
     
