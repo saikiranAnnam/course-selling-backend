@@ -55,12 +55,41 @@ router.post('/signin', async(req, res) =>{
     
 });
 
-router.post('/courses', AdminMiddleware, (req, res) =>{
+router.post('/courses', AdminMiddleware, async(req, res) =>{
     // course creation logic    
+    try{
+        const title = req.body.title;
+        const description = req.body.description;
+        const price = req.body.price;
+        const imageLink = req.body.imageLink;
+
+        const newCourse = await Course.create({
+            title: title, 
+            description : description, 
+            price : price, 
+            imageLink : imageLink
+        })
+        res.json({
+            message : "Course created successfully",
+            courseId : newCourse._id
+        })
+
+    }catch(error){
+        res.json({
+            message : error.message,
+            error: error.code
+        })
+    }
+    
+
 });
 
-router.get('/courses', AdminMiddleware, (req, res) =>{
+router.get('/courses', AdminMiddleware, async (req, res) =>{
     // admin accessing the all courses logic implmenation
+    const response = await Course.find({});
+    res.json({
+        courses : response
+    })
 })
 
 module.exports = router;
