@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const {DB_URL} = require("../config");
 
 // Connect to MongoDB
 mongoose.connect("mongodb+srv://admin:saikiran54@cluster0.tffbtx0.mongodb.net/course-app-backend?retryWrites=true&w=majority");

@@ -1,11 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const adminRouter = require('./middleware/admin');
-const userRouter = require('./middleware/user');
+const adminRouter = require('./routes/admin');
+const userRouter = require('./routes/user');
 
 //middleware for parsing request bodies
-app.use(express.json());
+app.use(bodyParser.json());
 app.use("/admin", adminRouter);
 app.use("/user", userRouter);
 
